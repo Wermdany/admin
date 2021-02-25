@@ -1,32 +1,37 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+  <ConfigProvider v-bind="bind">
     <router-view />
-  </div>
+  </ConfigProvider>
 </template>
+<script>
+import { ConfigProvider } from "ant-design-vue";
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+import zh_CN from "ant-design-vue/es/locale/zh_CN";
+import en_US from "ant-design-vue/es/locale/en_US";
+import ko_KR from "ant-design-vue/es/locale/ko_KR";
+import ja_JP from "ant-design-vue/es/locale/ja_JP";
+import dayjs from "dayjs";
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+import zh_CN_L from "dayjs/locale/ja";
+dayjs.locale(zh_CN_L);
+export default {
+  name: "APP",
+  components: {
+    ConfigProvider
+  },
+  data() {
+    this.locales = {
+      zh_CN,
+      en_US,
+      ko_KR,
+      ja_JP
+    };
+    return {
+      bind: {
+        locale: this.locales.zh_CN,
+        autoInsertSpaceInButton: false
+      }
+    };
   }
-}
-</style>
+};
+</script>
