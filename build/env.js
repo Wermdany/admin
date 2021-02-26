@@ -41,7 +41,7 @@ const isProd = env.NODE_ENV === "production";
 
 const isTest = env.NODE_ENV === "test";
 /** 是否查看打包信息 */
-const isCatBuild = env.VUE_APP_WEBPACK_BUNDLE_ANALYZER === "true";
+const isCatReport = env.VUE_APP_CAT_REPORT === "true";
 
 module.exports = {
   getEnv,
@@ -49,5 +49,5 @@ module.exports = {
   isProd,
   isTest,
   useOtherEnv,
-  isCatBuild
+  isCatReport
 };

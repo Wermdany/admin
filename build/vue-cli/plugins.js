@@ -3,7 +3,7 @@ const WebPack = require("webpack");
 const WebpackBundleAnalyzer = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
 
-const { useOtherEnv, isProd, isCatBuild } = require("../env");
+const { useOtherEnv, isProd, isCatReport } = require("../env");
 const { ToEnvPrams } = require("../utils");
 
 module.exports = config => {
@@ -12,7 +12,7 @@ module.exports = config => {
     .plugin("momentToDayjsPlugin")
     .use(MomentToDayjsPlugin, [{ preset: "antdv3" }]);
 
-  if (isCatBuild) {
+  if (isCatReport) {
     config.plugin("WebpackBundleAnalyzer").use(WebpackBundleAnalyzer, [{}]);
   }
 

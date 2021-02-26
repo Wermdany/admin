@@ -1,37 +1,35 @@
 <template>
-  <ConfigProvider v-bind="bind">
-    <router-view />
+  <ConfigProvider v-bind="bind" :locale="antLocale">
+    <router-view>
+      <template #default="{component}">
+        <component :is="component" />
+      </template>
+    </router-view>
   </ConfigProvider>
 </template>
 <script>
 import { ConfigProvider } from "ant-design-vue";
+import { mapState } from "vuex";
+import { setSystemLocale } from "@/locales";
+import { langKeys } from "@/locales/config";
 
-import zh_CN from "ant-design-vue/es/locale/zh_CN";
-import en_US from "ant-design-vue/es/locale/en_US";
-import ko_KR from "ant-design-vue/es/locale/ko_KR";
-import ja_JP from "ant-design-vue/es/locale/ja_JP";
-import dayjs from "dayjs";
-
-import zh_CN_L from "dayjs/locale/ja";
-dayjs.locale(zh_CN_L);
 export default {
   name: "APP",
   components: {
     ConfigProvider
   },
   data() {
-    this.locales = {
-      zh_CN,
-      en_US,
-      ko_KR,
-      ja_JP
-    };
     return {
       bind: {
-        locale: this.locales.zh_CN,
         autoInsertSpaceInButton: false
       }
     };
+  },
+  computed: {
+    ...mapState("locale", ["antLocale"])
+  },
+  mounted() {
+    setSystemLocale(langKeys.ko_KR);
   }
 };
 </script>

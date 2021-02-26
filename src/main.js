@@ -2,7 +2,9 @@ import Vue from "vue";
 import App from "@/App.vue";
 import router from "@/router";
 import store from "@/store";
+
 import { isDev } from "@/utils/env";
+
 import i18n from "@/packages/vue-i18n";
 
 import "@/styles/index.less";

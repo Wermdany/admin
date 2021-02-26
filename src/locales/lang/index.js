@@ -1,6 +1,5 @@
-import localConfig from "../config";
+import { availableLocales } from "@/locales/config";
 import { merge } from "lodash-es";
-const { availableLocales } = localConfig;
 
 /**
  *生成语言模板
