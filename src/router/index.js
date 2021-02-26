@@ -1,8 +1,9 @@
+import { isDev } from "@/utils/env";
 import Vue from "vue";
-import VueRouter from "vue-router";
+import Router from "vue-router";
 import Home from "../views/Home.vue";
 
-Vue.use(VueRouter);
+Vue.use(Router);
 
 const routes = [
   {
@@ -21,12 +22,46 @@ const routes = [
   },
   {
     path: "*",
-    name: "404"
+    name: "404",
+    component: () => import("@/layouts/page/404.vue")
   }
 ];
 
-const router = new VueRouter({
-  routes
-});
+const createRouter = () =>
+  new Router({
+    mode: "hash",
+    scrollBehavior: () => ({ y: 0 }),
+    routes: []
+  });
+const router = createRouter();
+
+/**
+ *重置路由表
+ *
+ *
+ * Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
+ */
+export function resetRouter() {
+  const newRouter = new createRouter();
+  router.matcher = newRouter.matcher; // reset router
+  // 在测试环境 适配 vue-devtools 查看全部路由信息
+  if (isDev()) {
+    router.options.routes = [];
+  }
+}
+/**
+ * 新增路由表信息
+ *
+ * @param {*} routes
+ */
+export function addRoutes(routes) {
+  router.addRoutes(routes);
+  // 在测试环境 适配 vue-devtools 查看全部路由信息
+  if (isDev()) {
+    router.options.routes = routes;
+  }
+}
+
+addRoutes(routes);
 
 export default router;

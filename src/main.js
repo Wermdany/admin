@@ -3,6 +3,10 @@ import App from "@/App.vue";
 import router from "@/router";
 import store from "@/store";
 
+import { getAllRouterConfig } from "@/router/generator";
+
+console.log(getAllRouterConfig());
+
 import { isDev } from "@/utils/env";
 
 import i18n from "@/packages/vue-i18n";

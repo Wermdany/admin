@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <a-button>{{ $t("a") }}</a-button>
+    <a-button>{{ $t("a11") }}</a-button>
     <a-input @change="change" type="textarea" v-model="datePicker"></a-input>
   </div>
 </template>

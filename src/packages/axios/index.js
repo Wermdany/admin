@@ -1,6 +1,6 @@
 import axios from "axios";
 import { ENV } from "@/utils/env";
-import { axios as axiosConfig } from "@/config";
+import { headers, timeOut, validateStatus } from "@/packages/axios/config";
 
 // 公共请求基地址
 const VUE_APP_HTTP_BASE_URL = ENV.VUE_APP_HTTP_BASE_URL;
@@ -9,10 +9,10 @@ const VUE_APP_RUN_ENV = ENV.VUE_APP_RUN_ENV;
 
 const A = axios.create({
   baseURL: VUE_APP_HTTP_BASE_URL,
-  headers: axiosConfig.headers,
+  headers,
   //断点调试时，改为 无限时间 即为 0
-  timeout: VUE_APP_RUN_ENV.indexOf("test") == -1 ? 0 : axiosConfig.timeout,
-  validateStatus: axiosConfig.validateStatus
+  timeout: VUE_APP_RUN_ENV.indexOf("dev") == -1 ? 0 : timeOut,
+  validateStatus: validateStatus
 });
 
 //请求拦截
