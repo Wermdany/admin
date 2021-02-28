@@ -34,6 +34,7 @@ const actions = {
       );
     }
   },
+  /** 设置语言 */
   setLocale: ({ dispatch }, lang) => {
     dispatch("setLang", lang);
     dispatch("setAntLocale", lang);
