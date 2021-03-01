@@ -1,0 +1,11 @@
+.scrollbar(@bgc: @system-background-color, @thumb: #d9d9d9, @size: 10px) {
+  &::-webkit-scrollbar {
+    cursor: pointer;
+    width: @size;
+    height: @size;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: @thumb;
+    border-radius: @size / 4;
+  }
+}

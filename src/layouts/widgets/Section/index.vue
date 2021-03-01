@@ -8,7 +8,6 @@ export default {
   name: "SECTION"
 };
 </script>
-@system-menu-width
 <style lang="less">
 .layout-section {
   background: @system-background-color;
