@@ -7,6 +7,7 @@
       mode="inline"
       :inlineCollapsed="false"
       @click="handleClick"
+      v-model="dd"
       :overflowedIndicator="dom"
     >
       <a-sub-menu key="sub1" @titleClick="titleClick">
@@ -37,7 +38,7 @@
         <span slot="title"
           ><a-icon type="appstore" /><span>Navigation Two</span></span
         >
-        <a-menu-item key="5">
+        <a-menu-item key="/aaa">
           Option 5
         </a-menu-item>
         <a-menu-item key="6">
@@ -84,7 +85,7 @@ export default {
     return {
       current: ["mail"],
       openKeys: ["sub1"],
-      dom: <div>1111</div>
+      dd: ""
     };
   },
   watch: {
