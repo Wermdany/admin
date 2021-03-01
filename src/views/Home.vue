@@ -1,18 +1,16 @@
 <template>
   <div class="home">
-    <a-button>{{ $t("a11") }}</a-button>
-    <a-input @change="change" type="textarea" v-model="datePicker"></a-input>
+    <Layout />
   </div>
 </template>
 
 <script>
-import { Button, Input } from "ant-design-vue";
 import "ant-design-vue/es/_util/antInputDirective";
+import Layout from "@/layouts";
 export default {
   name: "Home",
   components: {
-    [Button.name]: Button,
-    [Input.name]: Input
+    Layout
   },
   data() {
     return {

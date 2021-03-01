@@ -1,5 +1,5 @@
 @import "colors.less";
-
+@import "../var/system.less";
 // The prefix to use on all css classes from ant.
 @ant-prefix: ant;
 
@@ -7,7 +7,7 @@
 @html-selector: html;
 
 // -------- Colors -----------
-@primary-color: @blue-6;
+@primary-color: @self-6;
 @info-color: @blue-6;
 @success-color: @green-6;
 @processing-color: @blue-6;
@@ -150,10 +150,10 @@
 @shadow-2: 0 4px 12px @shadow-color;
 
 // Buttons
-@btn-font-weight: 400;
+@btn-font-weight: 500;
 @btn-border-radius-base: @border-radius-base;
 @btn-border-radius-sm: @border-radius-base;
-@btn-border-width: @border-width-base;
+@btn-border-width: 2px;
 @btn-border-style: @border-style-base;
 @btn-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
 @btn-primary-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
@@ -428,7 +428,7 @@
 @menu-item-color: @text-color;
 @menu-highlight-color: @primary-color;
 @menu-item-active-bg: @item-active-bg;
-@menu-item-active-border-width: 3px;
+@menu-item-active-border-width: 0px;
 @menu-item-group-title-color: @text-color-secondary;
 @menu-icon-size: @font-size-base;
 @menu-icon-size-lg: @font-size-lg;
