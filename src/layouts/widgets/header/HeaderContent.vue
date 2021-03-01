@@ -60,16 +60,27 @@ export default {
   &--menu {
     display: flex;
     .menu-user {
+      cursor: pointer;
+      transition: all 0.3s;
       font-size: 16px;
+      padding: 0 10px;
       .username {
         margin-left: 16px;
+      }
+      &:hover {
+        background: rgba(0, 0, 0, 0.05);
       }
     }
     .back {
       margin-left: 20px;
       margin-right: 20px;
+      padding: 0 10px;
       font-size: 20px;
       cursor: pointer;
+      transition: all 0.3s;
+      &:hover {
+        background: rgba(0, 0, 0, 0.05);
+      }
     }
   }
 }

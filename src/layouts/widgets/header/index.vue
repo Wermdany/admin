@@ -1,7 +1,9 @@
 <template>
   <div class="layout-header">
-    <Logo />
-    <HeaderContent />
+    <div class="layout-header--fixed">
+      <Logo />
+      <HeaderContent />
+    </div>
   </div>
 </template>
 <script>
@@ -17,6 +19,12 @@ export default {
 </script>
 <style lang="less">
 .layout-header {
-  overflow: hidden;
+  height: @system-header-height;
+  &--fixed {
+    top: 0;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
 }
 </style>

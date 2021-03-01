@@ -1,17 +1,13 @@
 <template>
   <div class="home">
-    <Layout />
+    1111111111
   </div>
 </template>
 
 <script>
-import "ant-design-vue/es/_util/antInputDirective";
-import Layout from "@/layouts";
 export default {
   name: "Home",
-  components: {
-    Layout
-  },
+  components: {},
   data() {
     return {
       datePicker: ""
