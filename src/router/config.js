@@ -24,3 +24,5 @@ export const login404RouterConfig = [
 
 /** 未登陆 404 后备页面匹配配置 */
 export const unLogin404RouterConfig = [{ path: "*", redirect: "/login" }];
+
+export const layOut = () => import("@/layouts");

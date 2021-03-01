@@ -1,10 +1,6 @@
 <template>
   <ConfigProvider v-bind="bind" :locale="antLocale">
-    <router-view>
-      <template #default="{component}">
-        <component :is="component" />
-      </template>
-    </router-view>
+    <router-view />
   </ConfigProvider>
 </template>
 <script>
