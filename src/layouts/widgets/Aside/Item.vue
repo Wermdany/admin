@@ -2,7 +2,9 @@
   <a-menu mode="inline">
     <a-menu-item>菜单项</a-menu-item>
     <a-sub-menu title="子菜单">
-      <a-menu-item>子菜单项</a-menu-item>
+      <a-menu-item>
+        <router-link to="">1111</router-link>
+      </a-menu-item>
     </a-sub-menu>
   </a-menu>
 </template>
