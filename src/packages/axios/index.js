@@ -1,6 +1,8 @@
 import axios from "axios";
 import { ENV } from "@/utils/env";
 import { headers, timeOut, validateStatus } from "@/packages/axios/config";
+import store from "@/store";
+import { urlQueryKey } from "@/locales/config";
 
 // 公共请求基地址
 const VUE_APP_HTTP_BASE_URL = ENV.VUE_APP_HTTP_BASE_URL;
@@ -17,6 +19,7 @@ const A = axios.create({
 
 //请求拦截
 A.interceptors.request.use(config => {
+  config.headers[urlQueryKey] = store.state.locale.lang;
   return config;
 });
 

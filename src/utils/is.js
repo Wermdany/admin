@@ -67,3 +67,9 @@ export const isFile = _ => getType(_) === "[object File]";
  *  是否是 Blob
  */
 export const isBlob = _ => getType(_) === "[object Blob]";
+/**
+ *  是否是一个外部链接
+ */
+export function isExternal(path) {
+  return /^(https?:|mailto:|tel:)/.test(path);
+}

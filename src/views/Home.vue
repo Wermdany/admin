@@ -12,7 +12,9 @@ export default {
   components: {},
   data() {
     return {
-      datePicker: ""
+      datePicker: "",
+      drag: true,
+      a: ""
     };
   },
   mounted() {
@@ -25,3 +27,8 @@ export default {
   }
 };
 </script>
+<style lang="less" scoped>
+.flip-list-move {
+  transition: transform 0.5s;
+}
+</style>
