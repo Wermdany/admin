@@ -29,7 +29,7 @@ export default {
   height: @system-tabViews-item-height;
   margin-top: 10px;
   color: #333;
-  font-size: 16px;
+  font-size: 14px;
   padding: 0 18px;
   &.action {
     background-color: @system-background-color;
@@ -37,7 +37,7 @@ export default {
 
     .text {
       &::before {
-        background: #e17f85;
+        background: #f27710;
       }
     }
   }
@@ -46,8 +46,8 @@ export default {
     white-space: nowrap;
     &::before {
       content: "";
-      width: 14px;
-      height: 14px;
+      width: 10px;
+      height: 10px;
       display: inline-block;
       border-radius: 50%;
       margin-right: 9px;

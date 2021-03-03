@@ -20,6 +20,7 @@ export default {
     width: 140px;
     vertical-align: top;
     margin-top: (@system-header-height - 67px) / 2;
+    user-select: none;
   }
 }
 </style>

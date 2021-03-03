@@ -60,7 +60,7 @@ export default {
       margin-left: 20px;
       margin-right: 20px;
       padding: 0 10px;
-      font-size: 28px;
+      font-size: 25px;
       cursor: pointer;
       transition: all 0.3s;
       &:hover {
