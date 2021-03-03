@@ -2,12 +2,15 @@ import Vue from "vue";
 import App from "@/App.vue";
 import router from "@/router";
 import store from "@/store";
-
 import { isDev } from "@/utils/env";
 
 import i18n from "@/packages/vue-i18n";
 
 import "@/styles/index.less";
+
+import { createGuard } from "@/router/guard";
+
+createGuard(router);
 
 Vue.config.productionTip = false;
 Vue.config.devtools = false;

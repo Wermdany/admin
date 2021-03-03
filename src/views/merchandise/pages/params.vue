@@ -7,7 +7,7 @@
 </template>
 <script>
 export default {
-  name: "PARAMS"
+  name: "params"
 };
 </script>
 <style lang="less" scoped></style>

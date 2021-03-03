@@ -6,16 +6,17 @@
       @wheel.prevent="handleScroll"
     >
       <TabViewsItem
-        v-for="item in 50"
-        :key="item"
-        :item="{ a: item }"
-        @cat="cat"
-        :class="{ action: action == item }"
+        v-for="(item, i) in openedViews"
+        :key="item.path"
+        :item="item"
+        :i="i"
+        @close="close"
       />
     </div>
   </div>
 </template>
 <script>
+import { mapState } from "vuex";
 import TabViewsItem from "./TabViewsItem";
 export default {
   name: "TabViews",
@@ -27,14 +28,15 @@ export default {
       action: 1
     };
   },
+  computed: {
+    ...mapState("tabView", ["openedViews"])
+  },
   methods: {
     handleScroll(e) {
       this.$refs["tab-views"].scrollLeft -= e.wheelDelta;
-      // console.log(e.wheelDelta);
     },
-    cat(e) {
-      console.log(e);
-      this.action = e.a;
+    close(item, i) {
+      this.$store.dispatch("tabView/deleteOpenedViews", { item, i });
     }
   }
 };
@@ -50,6 +52,8 @@ export default {
     overflow: hidden;
     position: fixed;
     width: calc(100% - @system-menu-width);
+    height: @system-tabViews-height;
+
     display: flex;
     .scrollbar();
     &:hover {

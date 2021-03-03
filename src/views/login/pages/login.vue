@@ -3,7 +3,7 @@
 </template>
 <script>
 export default {
-  name: "LOGIN"
+  name: "login"
 };
 </script>
 <style lang="less"></style>

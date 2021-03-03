@@ -3,7 +3,7 @@
 </template>
 <script>
 export default {
-  name: "GOODS"
+  name: "goods"
 };
 </script>
 <style lang="less" scoped></style>

@@ -1,7 +1,9 @@
 <template>
-  <div class="tab-views-item" @click="$emit('cat', item)">
-    <span class="text">{{ "菜品管理" }}</span>
-    <a-icon type="close" @click.stop="$emit('close', item)" />
+  <div class="tab-views-item" :class="{ action: isAction(item) }">
+    <router-link :to="item" tag="span">
+      <span class="text">{{ item.title }}</span>
+      <a-icon type="close" @click.stop="$emit('close', item, i)" />
+    </router-link>
   </div>
 </template>
 <script>
@@ -12,10 +14,19 @@ export default {
     item: {
       type: Object,
       required: true
-    }
+    },
+    i: Number
   },
   components: {
     [Icon.name]: Icon
+  },
+  methods: {
+    to(item) {
+      this.$router.push(item);
+    },
+    isAction(item) {
+      return item.path == this.$route.path;
+    }
   }
 };
 </script>

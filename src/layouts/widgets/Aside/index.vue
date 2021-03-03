@@ -1,6 +1,11 @@
 <template>
   <aside class="layout-aside">
-    <a-menu mode="inline" v-model="current" :defaultOpenKeys="defaultOpenKeys">
+    <a-menu
+      mode="inline"
+      v-model="current"
+      :inlineIndent="15"
+      :defaultOpenKeys="defaultOpenKeys"
+    >
       <template v-for="item in list">
         <Item
           v-if="item.children && item.children.length > 0"
@@ -31,7 +36,6 @@ export default {
   components: { Item, ALink },
   data() {
     return {
-      current: [this.$route.path],
       defaultOpenKeys: pathToOpenKeys(this.$route.path)
     };
   },
@@ -39,6 +43,14 @@ export default {
     ...mapState("tabView", ["routes"]),
     list() {
       return filterRoutesToMenu(this.routes);
+    },
+    current: {
+      get() {
+        return [this.$route.path];
+      },
+      set() {
+        // console.log(v);
+      }
     }
   },
   methods: {

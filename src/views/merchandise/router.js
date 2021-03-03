@@ -3,7 +3,7 @@ export default [
   {
     path: "/merchandise",
     component: layOut,
-    name: "MERCHANDISE",
+    name: "merchandise",
     meta: {
       aside: true,
       title: "商品维护",
@@ -14,7 +14,7 @@ export default [
       {
         path: "params",
         component: () => import("@/views/merchandise/pages/params"),
-        name: "PARAMS",
+        name: "params",
         meta: {
           aside: true,
           title: "参数设置",
@@ -25,7 +25,7 @@ export default [
       {
         path: "goods",
         component: () => import("@/views/merchandise/pages/goods"),
-        name: "GOODS",
+        name: "goods",
         meta: {
           aside: true,
           title: "菜品管理",
