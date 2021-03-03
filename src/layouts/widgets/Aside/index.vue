@@ -1,19 +1,17 @@
 <template>
   <aside class="layout-aside">
     <a-menu mode="inline" v-model="current" :defaultOpenKeys="defaultOpenKeys">
-      <template v-for="item in routes">
-        <a-menu-item v-if="!item.children" :key="item.path">
+      <template v-for="item in list">
+        <Item
+          v-if="item.children && item.children.length > 0"
+          :key="item.path"
+          :menu-info="item"
+        />
+        <a-menu-item v-else :key="item.path">
           <ALink :to="item.path">
-            <span>{{ item.meta.title }}</span>
+            <span>{{ item.title }}</span>
           </ALink>
         </a-menu-item>
-        <Item
-          v-else
-          :key="join('/', item.path)"
-          :menu-info="item"
-          :join="join"
-          :parent-path="item.path || '/'"
-        />
       </template>
     </a-menu>
   </aside>
@@ -27,7 +25,7 @@ import "./menu.less";
 import Item from "./Item";
 import { mapState } from "vuex";
 import { join } from "@/utils";
-import { pathToOpenKeys } from "./utils";
+import { pathToOpenKeys, filterRoutesToMenu } from "./utils";
 export default {
   name: "Aside",
   components: { Item, ALink },
@@ -38,7 +36,10 @@ export default {
     };
   },
   computed: {
-    ...mapState("tabView", ["routes"])
+    ...mapState("tabView", ["routes"]),
+    list() {
+      return filterRoutesToMenu(this.routes);
+    }
   },
   methods: {
     join

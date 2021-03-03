@@ -10,7 +10,7 @@ export default {
 </script>
 <style lang="less">
 .layout-section {
-  padding: 30px;
+  padding: 20px;
   background: @system-background-color;
   margin-left: @system-menu-width;
   min-height: calc(100vh - @system-header-height - @system-tabViews-height);

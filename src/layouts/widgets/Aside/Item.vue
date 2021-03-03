@@ -1,24 +1,19 @@
 <template functional>
-  <a-sub-menu :key="props.parentPath">
+  <a-sub-menu :key="props.menuInfo.path">
     <span slot="title">
-      {{ props.menuInfo.meta.title }}
+      {{ props.menuInfo.title }}
     </span>
     <template v-for="item in props.menuInfo.children">
-      <a-menu-item
-        v-if="!item.children"
-        :key="props.join(props.parentPath, item.path)"
-      >
-        <ALink :to="props.join(props.parentPath, item.path)">
-          <span>{{ item.meta.title }}</span>
+      <Item
+        v-if="item.children && item.children.length > 0"
+        :key="item.path"
+        :menu-info="item"
+      />
+      <a-menu-item v-else :key="item.path">
+        <ALink :to="item.path">
+          <span>{{ item.title }}</span>
         </ALink>
       </a-menu-item>
-      <Item
-        v-else
-        :key="props.join(props.parentPath, item.path)"
-        :menu-info="item"
-        :join="props.join"
-        :parent-path="props.join(props.parentPath, item.path)"
-      />
     </template>
   </a-sub-menu>
 </template>
@@ -34,8 +29,7 @@ export default {
       type: Object,
       default: () => ({})
     },
-    join: Function,
-    parentPath: String
+    path: String
   }
 };
 </script>

@@ -27,5 +27,5 @@ new Vue({
 }).$mount("#app");
 
 import { getAllRouterConfig } from "@/router/generator";
-
-console.log(getAllRouterConfig());
+import { filterRoutesToMenu } from "@/layouts/widgets/Aside/utils";
+console.log(filterRoutesToMenu(getAllRouterConfig()));
