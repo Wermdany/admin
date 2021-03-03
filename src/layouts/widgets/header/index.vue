@@ -20,7 +20,9 @@ export default {
 <style lang="less">
 .layout-header {
   height: @system-header-height;
+
   &--fixed {
+    background: linear-gradient(270deg, #4cb8a8 0%, #31cca1 100%);
     top: 0;
     overflow: hidden;
     position: fixed;

@@ -8,9 +8,9 @@
         v-if="!item.children"
         :key="props.join(props.parentPath, item.path)"
       >
-        <ALink :to="props.join(props.parentPath, item.path)">{{
-          item.meta.title
-        }}</ALink>
+        <ALink :to="props.join(props.parentPath, item.path)">
+          <span>{{ item.meta.title }}</span>
+        </ALink>
       </a-menu-item>
       <Item
         v-else

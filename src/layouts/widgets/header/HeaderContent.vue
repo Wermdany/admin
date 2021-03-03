@@ -1,13 +1,14 @@
 <template>
   <div class="header-content">
-    <div class="header-content--text">取引先管理プラットフォーム</div>
+    <div class="header-content--text">商户管理平台</div>
     <div class="header-content--menu">
       <div class="menu-user">
-        <a-avatar :size="44" :src="avatar">avatar</a-avatar>
-        <span class="username">Aguent Id</span>
+        <a-avatar :size="38" :src="avatar">avatar</a-avatar>
+        <span class="username">Aguent ID</span>
       </div>
       <div class="back">
-        <a-icon type="poweroff" />
+        <a-icon type="poweroff" :size="25" />
+        <span class="text">退出</span>
       </div>
     </div>
   </div>
@@ -32,29 +33,13 @@ export default {
   margin-left: @system-menu-width;
   height: @system-header-height;
   line-height: @system-header-height;
-  font-size: 20px;
+  font-size: 18px;
   color: @white;
-  background: linear-gradient(270deg, #4cb8a8 0%, #31cca1 100%);
   display: flex;
   &--text {
     text-align: center;
     flex: 1;
-    &::after,
-    &::before {
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      content: "";
-      background: @white;
-      display: inline-block;
-      vertical-align: middle;
-    }
-    &::after {
-      margin-left: 20px;
-    }
-    &::before {
-      margin-right: 20px;
-    }
+    font-size: 24px;
   }
 
   &--menu {
@@ -62,7 +47,7 @@ export default {
     .menu-user {
       cursor: pointer;
       transition: all 0.3s;
-      font-size: 16px;
+      font-size: 18px;
       padding: 0 10px;
       .username {
         margin-left: 16px;
@@ -75,11 +60,16 @@ export default {
       margin-left: 20px;
       margin-right: 20px;
       padding: 0 10px;
-      font-size: 20px;
+      font-size: 28px;
       cursor: pointer;
       transition: all 0.3s;
       &:hover {
         background: rgba(0, 0, 0, 0.05);
+      }
+      .text {
+        font-size: 16px;
+        margin-left: 9px;
+        vertical-align: top;
       }
     }
   }

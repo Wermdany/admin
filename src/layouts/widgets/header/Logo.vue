@@ -1,22 +1,11 @@
 <template>
   <div class="layout-logo">
-    <a-icon :component="logo"></a-icon>
-    <span class="layout-logo--text">LOGO</span>
+    <img class="layout-logo-pic" src="@/assets/images/logo.png" alt="" />
   </div>
 </template>
 <script>
-import logo from "@/assets/svg/logo.svg";
-import { Icon } from "ant-design-vue";
 export default {
-  name: "Logo",
-  components: {
-    [Icon.name]: Icon
-  },
-  data() {
-    return {
-      logo
-    };
-  }
+  name: "Logo"
 };
 </script>
 <style lang="less">
@@ -27,10 +16,10 @@ export default {
   height: @system-header-height;
   text-align: center;
   float: left;
-  &--text {
-    font-size: 34px;
+  &-pic {
+    width: 140px;
     vertical-align: top;
-    margin-left: 13px;
+    margin-top: (@system-header-height - 67px) / 2;
   }
 }
 </style>

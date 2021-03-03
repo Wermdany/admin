@@ -3,3 +3,16 @@
 .ant-menu-vertical-left {
   border: none;
 }
+
+.ant-menu-vertical .ant-menu-item::after,
+.ant-menu-vertical-left .ant-menu-item::after,
+.ant-menu-vertical-right .ant-menu-item::after,
+.ant-menu-inline .ant-menu-item::after {
+  left: 0;
+  right: auto;
+  border-color: @primary-color;
+}
+
+.ant-menu-inline .ant-menu-submenu-title {
+  font-size: @font-size-lg + 2px;
+}

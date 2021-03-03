@@ -19,3 +19,12 @@ export function pathToOpenKeys(path) {
   }
   return routerArr;
 }
+/**
+ *过滤路由信息成 menu 需要的样子
+ *
+ * @export
+ * @param {*} routes
+ */
+export function filterRoutesToMenu(routes) {
+  return routes;
+}
