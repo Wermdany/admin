@@ -53,13 +53,13 @@ export function loadOtherLang() {
   const requireModule = require.context(
     "@/views",
     true,
-    /\.\/[a-zA-Z]+\/lang\/[a-z]{2,3}_[A-Z]{2}\.js$/
+    /\.\/[\w]+\/lang\/[a-z]{2,3}_[A-Z]{2}\.js$/
   );
 
   const modules = requireModule.keys().reduce((module, path) => {
     // ./login/lang/ko_KR.js => login ko_KR
     const name = path.replace(
-      /\.\/([a-zA-Z]+)\/lang\/([a-z]{2,3}_[A-Z]{2})\.js$/,
+      /\.\/([\w]+)\/lang\/([a-z]{2,3}_[A-Z]{2})\.js$/,
       "$1 $2"
     );
 

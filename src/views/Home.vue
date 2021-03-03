@@ -17,9 +17,6 @@ export default {
       a: ""
     };
   },
-  mounted() {
-    console.log(this);
-  },
   methods: {
     change(v) {
       console.log(v);

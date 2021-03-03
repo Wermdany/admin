@@ -1,38 +1,11 @@
 import { isDev } from "@/utils/env";
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "../views/Home.vue";
-import { layOut } from "./config";
-
+import store from "@/store";
+import { getAllRouterConfig } from "./generator";
 Vue.use(Router);
 
-const routes = [
-  {
-    path: "/",
-    component: layOut,
-    children: [
-      {
-        path: "/",
-        name: "Home",
-        component: Home
-      },
-      {
-        path: "/about",
-        name: "About",
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () =>
-          import(/* webpackChunkName: "about" */ "../views/About.vue")
-      },
-      {
-        path: "*",
-        name: "404",
-        component: () => import("@/layouts/page/404.vue")
-      }
-    ]
-  }
-];
+const routes = getAllRouterConfig();
 
 const createRouter = () =>
   new Router({
@@ -63,6 +36,7 @@ export function resetRouter() {
  */
 export function addRoutes(routes) {
   router.addRoutes(routes);
+  store.dispatch("tabView/setRoutes", routes);
   // 在测试环境 适配 vue-devtools 查看全部路由信息
   if (isDev()) {
     router.options.routes = routes;

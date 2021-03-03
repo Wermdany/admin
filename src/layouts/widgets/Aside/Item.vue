@@ -1,20 +1,41 @@
-<template>
-  <a-menu mode="inline">
-    <a-menu-item>菜单项</a-menu-item>
-    <a-sub-menu title="子菜单">
-      <a-menu-item>
-        <LinkItem to="https://www.baidu.com">子菜单项</LinkItem>
+<template functional>
+  <a-sub-menu :key="props.parentPath">
+    <span slot="title">
+      {{ props.menuInfo.meta.title }}
+    </span>
+    <template v-for="item in props.menuInfo.children">
+      <a-menu-item
+        v-if="!item.children"
+        :key="props.join(props.parentPath, item.path)"
+      >
+        <ALink :to="props.join(props.parentPath, item.path)">{{
+          item.meta.title
+        }}</ALink>
       </a-menu-item>
-    </a-sub-menu>
-  </a-menu>
+      <Item
+        v-else
+        :key="props.join(props.parentPath, item.path)"
+        :menu-info="item"
+        :join="props.join"
+        :parent-path="props.join(props.parentPath, item.path)"
+      />
+    </template>
+  </a-sub-menu>
 </template>
 <script>
 import { Menu } from "ant-design-vue";
-import Vue from "vue";
-import LinkItem from "@/layouts/widgets/Aside/Link";
-Vue.use(Menu);
 export default {
-  components: { LinkItem },
-  name: "Item"
+  functional: true,
+  name: "Item",
+  isSubMenu: true,
+  props: {
+    ...Menu.SubMenu.props,
+    menuInfo: {
+      type: Object,
+      default: () => ({})
+    },
+    join: Function,
+    parentPath: String
+  }
 };
 </script>

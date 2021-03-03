@@ -8,7 +8,7 @@
 import logo from "@/assets/svg/logo.svg";
 import { Icon } from "ant-design-vue";
 export default {
-  name: "LOGO",
+  name: "Logo",
   components: {
     [Icon.name]: Icon
   },

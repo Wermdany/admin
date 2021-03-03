@@ -4,7 +4,7 @@
   </component>
 </template>
 <script>
-import { isExternal } from "@/utils/is";
+import { isExternal } from "@/utils";
 export default {
   name: "Link",
   props: {

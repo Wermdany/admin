@@ -15,7 +15,7 @@
 <script>
 import { Avatar, Icon } from "ant-design-vue";
 export default {
-  name: "HEADER_CONTENT",
+  name: "HeaderContent",
   components: {
     [Avatar.name]: Avatar,
     [Icon.name]: Icon

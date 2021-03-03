@@ -12,7 +12,6 @@ export function getAllRouterConfig() {
   );
 
   const modules = requireModule.keys().reduce((module, path) => {
-    console.log(path);
     const name = path.replace(/\.\/([\w]+)\/router\.js$/, "$1");
     // 排除 login
     if (name === "login") {

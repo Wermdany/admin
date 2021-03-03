@@ -10,7 +10,7 @@
 import Logo from "./Logo";
 import HeaderContent from "./HeaderContent";
 export default {
-  name: "HEADER",
+  name: "Header",
   components: {
     Logo,
     HeaderContent
