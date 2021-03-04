@@ -1,0 +1,41 @@
+// 重写 a-modal
+
+.self {
+  .ant-modal {
+    &-confirm-title {
+      text-align: center;
+    }
+    .ant-modal-confirm-content {
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+    .ant-modal-confirm-btns {
+      float: none;
+      display: flex;
+    }
+  }
+  &.ant-modal {
+    &-confirm.self-confirm {
+      .ant-modal-confirm-btns {
+        justify-content: space-around;
+        .ant-btn {
+          &:first-child {
+            border: none;
+            color: @text-color-secondary;
+            &:active {
+              color: @text-color;
+            }
+          }
+        }
+      }
+    }
+  }
+  &.ant-modal {
+    &-confirm {
+      .ant-modal-confirm-btns {
+        justify-content: center;
+      }
+    }
+  }
+}
