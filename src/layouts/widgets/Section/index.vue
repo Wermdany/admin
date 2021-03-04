@@ -1,11 +1,17 @@
 <template>
   <section class="layout-section">
-    <router-view />
+    <keep-alive :include="cached">
+      <router-view :key="$route.fullPath"> </router-view>
+    </keep-alive>
   </section>
 </template>
 <script>
+import { mapState } from "vuex";
 export default {
-  name: "Section"
+  name: "Section",
+  computed: {
+    ...mapState("tabView", ["cached"])
+  }
 };
 </script>
 <style lang="less">

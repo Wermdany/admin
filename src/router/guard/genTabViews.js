@@ -15,7 +15,7 @@ function filterRouteToParams(to) {
 export function genTabViews(router) {
   router.beforeEach((to, from, next) => {
     const ob = filterRouteToParams(to);
-    store.dispatch("tabView/addOpenedViews", ob);
+    store.dispatch("tabView/addPage", ob);
     next();
   });
 }

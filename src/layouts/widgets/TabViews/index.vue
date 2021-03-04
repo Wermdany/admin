@@ -18,6 +18,7 @@
 <script>
 import { mapState } from "vuex";
 import TabViewsItem from "./TabViewsItem";
+import { loginRedirectPath } from "@/router/config";
 export default {
   name: "TabViews",
   components: {
@@ -36,7 +37,17 @@ export default {
       this.$refs["tab-views"].scrollLeft -= e.wheelDelta;
     },
     close(item, i) {
-      this.$store.dispatch("tabView/deleteOpenedViews", { item, i });
+      this.$store.dispatch("tabView/removePage", { item, i });
+      if (this.openedViews.length > 0) {
+        if (
+          this.$route.path != this.openedViews[this.openedViews.length - 1].path
+        ) {
+          this.$router.push(this.openedViews[this.openedViews.length - 1]);
+        }
+      } else {
+        if (this.$route.path !== loginRedirectPath)
+          this.$router.push(loginRedirectPath);
+      }
     }
   }
 };

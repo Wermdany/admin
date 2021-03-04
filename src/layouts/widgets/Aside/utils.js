@@ -31,7 +31,7 @@ export function filterRoutesToMenu(routes, parentPath = "/") {
   const res = [];
   routes.forEach(item => {
     //是否在侧边栏显示
-    if (item.meta.aside) {
+    if (item.meta?.aside) {
       const ob = {
         path: join(parentPath, item.path),
         title: item.meta.title,

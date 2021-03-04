@@ -1,5 +1,7 @@
 <template>
-  <div class="goods">goods</div>
+  <div class="goods">
+    <input type="text" name="" id="" />
+  </div>
 </template>
 <script>
 export default {

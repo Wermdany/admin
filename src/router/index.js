@@ -3,6 +3,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import store from "@/store";
 import { getAllRouterConfig } from "./generator";
+import { login404RouterConfig } from "@/router/config";
 Vue.use(Router);
 
 const routes = getAllRouterConfig();
@@ -43,6 +44,8 @@ export function addRoutes(routes) {
   }
 }
 
+routes.push(login404RouterConfig);
+console.log(routes);
 addRoutes(routes);
 
 export default router;

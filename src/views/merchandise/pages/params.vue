@@ -1,5 +1,6 @@
 <template>
   <div class="params">
+    <input type="text" name="" id="" />
     <ul>
       <li v-for="item in 100" :key="item">{{ item }}</li>
     </ul>

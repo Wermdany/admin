@@ -1,3 +1,4 @@
+import { loginRedirectPath } from "@/router/config";
 const state = {
   // 注入的路由 用来生成侧边栏
   routes: [],
@@ -11,12 +12,33 @@ const mutations = {
     state.routes = payload;
   },
   ADD_OPENED_VIEWS: (state, payload) => {
-    if (!state.openedViews.find(item => item.path == payload.path)) {
+    if (
+      !state.openedViews.find(item => item.path == payload.path) &&
+      payload.name
+    ) {
       state.openedViews.push(payload);
     }
   },
   DELETE_OPENED_VIEWS: (state, payload) => {
-    state.openedViews.splice(payload.i, 1);
+    if (state.openedViews.length !== 1 && payload.path !== loginRedirectPath) {
+      state.openedViews.splice(payload.i, 1);
+    }
+  },
+  ADD_CACHED: (state, payload) => {
+    if (payload.name && !state.cached.includes(payload.name) && payload.cache) {
+      state.cached.push(payload.name);
+    }
+  },
+  DELETE_CACHED: (state, payload) => {
+    const { item } = payload;
+    const useNameLength = state.openedViews.filter(c => c.name == item.name)
+      .length;
+    if (useNameLength == 1) {
+      const index = state.cached.indexOf(item.name);
+      if (index >= 0) {
+        state.cached.splice(index, 1);
+      }
+    }
   }
 };
 const actions = {
@@ -28,6 +50,20 @@ const actions = {
   },
   deleteOpenedViews({ commit }, payload) {
     commit("DELETE_OPENED_VIEWS", payload);
+  },
+  removeCached({ commit }, payload) {
+    commit("DELETE_CACHED", payload);
+  },
+  addCached({ commit }, payload) {
+    commit("ADD_CACHED", payload);
+  },
+  addPage({ dispatch }, payload) {
+    dispatch("addCached", payload);
+    dispatch("addOpenedViews", payload);
+  },
+  removePage({ dispatch }, payload) {
+    dispatch("removeCached", payload);
+    dispatch("deleteOpenedViews", payload);
   }
 };
 export default {

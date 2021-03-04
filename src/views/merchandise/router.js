@@ -18,7 +18,7 @@ export default [
         meta: {
           aside: true,
           title: "参数设置",
-          cache: false,
+          cache: true,
           auth: ""
         }
       },
