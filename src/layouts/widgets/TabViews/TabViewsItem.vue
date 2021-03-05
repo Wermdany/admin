@@ -21,9 +21,6 @@ export default {
     [Icon.name]: Icon
   },
   methods: {
-    to(item) {
-      this.$router.push(item);
-    },
     isAction(item) {
       return item.path == this.$route.path;
     }
@@ -42,6 +39,7 @@ export default {
   color: #333;
   font-size: 14px;
   padding: 0 18px;
+  white-space: nowrap;
   &.action {
     background-color: @system-background-color;
     border-radius: 10px 10px 0 0;
@@ -54,7 +52,6 @@ export default {
   }
   .text {
     margin-right: 35px;
-    white-space: nowrap;
     &::before {
       content: "";
       width: 10px;
