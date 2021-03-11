@@ -25,7 +25,7 @@ export default {
     ...mapState("locale", ["antLocale"])
   },
   mounted() {
-    setSystemLocale(langKeys.ko_KR);
+    setSystemLocale(langKeys.zh_CN);
   }
 };
 </script>

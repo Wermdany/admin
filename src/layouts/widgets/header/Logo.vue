@@ -1,6 +1,6 @@
 <template>
   <div class="layout-logo">
-    <img class="layout-logo-pic" src="@/assets/images/logo.png" alt="" />
+    <img class="layout-logo-pic" src="" alt="" />
   </div>
 </template>
 <script>
